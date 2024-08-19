@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h1>Product Page</h1>
+
+    <div class="card border-0 p-2 p-md-3 p-lg-5">
+        <div class="card-header bg-white border-0 text-center">
+            <h2>Where to Buy?</h2>
+            <p>Tickets can be purchased from any vendor in the map below.</p>
+        </div>
+    </div>
+
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Daily Passes</th>
+            <th scope="col">1 Week</th>
+            <th scope="col">Monthly Passes</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Youth</th>
+                <td>$3.50</td>
+                <td>$19.75</td>
+                <td>$73.00</td>
+         
+            </tr>
+          <tr>
+            <th scope="row">Adult</th>
+            <td>$3.50</td>
+            <td>$27.75</td>
+            <td>$100.00</td>
+      
+          </tr>
+          <tr>
+            <th scope="row">Senior</th>
+            <td>$3.50</td>
+            <td>$19.75</td>
+            <td>$35.00</td>
+
+          </tr>
+          
+        </tbody>
+      </table>
+ 
+      <br/>
+      <table class="table">
+        <caption>Annual Pass Rates</caption>
+
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Annual Passes</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Normal Income (Greater Than $33 000)</th>
+                <td>$385.00</td>
+       
+            </tr>
+            <tr>
+                <th scope="row">Low Income Households ($29 000 - $33 000)</th>
+                <td>$139.00</td>
+         
+            </tr>
+            <tr>
+                <th scope="row">Very Low Income Households (Less Than $29 000)</th>
+                <td>FREE</td>
+       
+            </tr>
+          
+        </tbody>
+      </table>
+
+    <br>
+    <header>
+        <h2 class="stack__title">Places to Purchase ETS Passes</h2>
+    </header>
+
+    <iframe allow="geolocation" src="https://data.edmonton.ca/dataset/Map-View-ETS-Sales-Outlet-Locations/kzs7-f2em/embed?width=auto&height=600" width="100%" height="600" style="border:0; padding: 0; margin: 0;"></iframe>
+    <p style="max-width:100%;"><small><i>All sales of ETS passes are set by the City of Edmonton, if there happens to be any price variation, please call 311.</i></small></p>
+
+
+{% endblock %}

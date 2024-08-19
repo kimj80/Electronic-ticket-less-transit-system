@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" style="text-align: center;">
+    <br/>
+    <h2 style="color: green;">Success!</h2>
+    <br/>
+    <span>
+        <a href="{% url 'account' %}"><button class="btn btn-secondary">My Account</button></a>
+        <a href="{% url 'index' %}"><button class="btn btn-secondary">Home</button></a>
+    </span>
+</div>
+
+    
+{% endblock %}

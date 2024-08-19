@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h2>Add Subscription To A Card</h2>
+    <br/>
+    <br/>
+    <p><b>Card ID Number: </b>{{ card.card_id }}
+    </p><p><b>Current Balance: </b>{{ card.MakeDollar }}</p>
+    </p><p><b>Current Subscription Expiry: </b>{{ card.sub_time_remaining }}</p>
+    <br/>
+    <form action="" method=POST>
+        {% csrf_token %}
+        {{ form_4.as_p }}
+        <br/>
+     
+        <input type="submit" value="Update Subscription" class="btn btn-success">
+        
+   
+    </form>
+    <br/>
+    <a href = "{% url 'account' %}"><button class="btn btn-secondary">Abort</button></a>
+ 
+
+    <script>
+        function update_1_week() {
+          document.getElementById("Subscription").value = "5"
+        }
+        function update_1_month() {
+          document.getElementById("Subscription").value = "10"
+        }
+        function update_2_month() {
+          document.getElementById("Subscription").value = "50"
+        }
+        function update_4_month() {
+          document.getElementById("Subscription").value = "100"
+        }
+        function reset() {
+          document.getElementById("Subscription").value = "0"
+        }
+        </script>
+    
+
+{% endblock %}

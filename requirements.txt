@@ -1,0 +1,10 @@
+asgiref==3.5.0
+Django==4.0.3
+django-widget-tweaks==1.4.12
+mfrc522==0.0.7
+mysql-connector==2.2.9
+mysqlclient==2.1.0
+python-dotenv==0.19.2
+RPi.GPIO==0.7.1
+spidev==3.5
+sqlparse==0.4.2

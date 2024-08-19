@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" style="text-align: center;">
+    <br/>
+    <h2 style="color: red;">Sorry, you do not have a subscription on any linked cards. Please purchase a subscription then try again. </h2>
+    <br/>
+    <span>
+        <a href="{% url 'account' %}"><button class="btn btn-secondary">My Account</button></a>
+        <a href="{% url 'index' %}"><button class="btn btn-secondary">Home</button></a>
+    </span>
+</div>
+
+    
+{% endblock %}

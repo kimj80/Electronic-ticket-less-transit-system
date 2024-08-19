@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+    <h2>Your Account</h2>
+    <hr>
+    <br>
+    <p><b>Username:</b> {{ user.username }}</p>
+    <p><b>Email:</b> {{ user.email }}</p>
+    <p><b>Date Joined:</b> {{ user.date_joined }}</p>
+    <br>
+    <h2>Your Cards</h2>
+    <hr>
+    <br>
+    <div class="card-group">
+      {% for card in cards %}
+      <div class="card" style="max-width: 25%;">
+        {% if card.is_active == True %}
+        <img class="card-img-top" src="../static/img/id-card.png" style="width: 80%; margin: 0 auto;" alt="Card image cap">
+        {% else %}
+        <img class="card-img-top" src="../static/img/id-card-inactive.jpg" style="width: 80%; margin: 0 auto;" alt="Card image cap">
+        {% endif %}
+
+        <div class="card-body" style="margin-left: 10%;">
+          <p class="card-text"><b>Card ID Number:</b> {{ card.card_id}}</p>
+          <p class="card-text"><b>Card Balance: </b>{{ card.MakeDollar }}</p>
+
+          {% if card.is_active == True %}
+          <p class="card-text"><b>Card Status: </b><span style="color: green;">Active</span></p>
+          {% else %}
+          <p class="card-text"><b>Card Status: </b><span style="color: red;">Inactive</span></p>
+          {% endif %}
+
+
+          <p class="card-text"><b>Card Expiry Date:</b> {{ card.expiry}} <span style="color:red;">{{ card.expiry_status}}</span></p>
+          <p class="card-text"><b>Subscription Time:</b> {{ card.sub_time_remaining }}</p>
+          
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Card Actions
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{% url 'add-balance' card.card_id %}">Add Balance</a>
+              <a class="dropdown-item" href="{% url 'add_subscription' card.card_id %}">Add Subscription</a>
+              <a class="dropdown-item" href="{% url 'deactivate_card' card.card_id %}">{% if card.is_active == True %} Deactivate Card {% else %} Activate Card {% endif %}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    
+
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div class="container">
+      <h2>Actions</h2>
+      <hr>
+      <span>
+      <a href="{% url 'link-card' %}"><button type="button" class="btn btn-danger">Link a New Card</button></a>
+      <a href="{% url 'transfer-balance' %}"><button type="button" class="btn btn-success">Transfer Balance</button></a>
+      <a href="{% url 'transfer-subscription' %}"><button type="button" class="btn btn-dark">Transfer Subscription</button></a>
+      </span>
+
+    </div>
+   
+    <br/>
+    <br/>
+    <br/>
+
+    <script src="text/javascript">
+      function myFunction() {
+        {{ card.deactivateCard }} 
+      }  
+    </script>
+  
+
+    
+{% else %}
+    <h2> Please authenticate</h2>
+{% endif %}
+{% endblock %}

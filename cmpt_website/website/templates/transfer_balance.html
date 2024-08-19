@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% user.is_authenticated}
+{% block content %}
+
+
+    <h2>Transfer Funds Between Cards</h2>
+    <br/>
+    <br/>
+    <form action="" method=POST>
+        {% csrf_token %}
+        {{ form_2.as_p }}
+        <!-- <select name="select1">
+            {% for entry in Cards %}
+                <option value="{{ entry.card_id }} {{entry.balance }}" {% if selected_card == entry %} selected="selected" {% endif %}>
+                    {{entry.card_id }} (BALANCE: {{ entry.balance }})</option>
+            {% endfor %}
+        </select>
+        <br/>
+        <br/>
+        <p>To Card: </p>
+        <select name="select2">
+            {% for entry in Cards %}
+                <option value="{{ entry.card_id }} {{ entry.balance }}" {% if selected_card == entry %} selected="selected" {% endif %}>
+                {{entry.card_id}} (BALANCE: {{ entry.balance }})</option>
+            {% endfor %}
+        </select> -->
+        <br/>
+        <br/>
+        <button type="submit"  class="btn btn-success">Transfer Funds</button>
+   
+    </form>
+    <br/>
+    <a href = "{% url 'account' %}"><button class="btn btn-secondary">Abort</button></a>
+        
+    
+{% endblock %}

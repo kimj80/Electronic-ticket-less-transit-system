@@ -1,0 +1,61 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}">JDK Transit</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menu1">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'product' %}">Product</a>
+          </li>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'safetyrules' %}">Safety Rules</a>
+          </li>
+        
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+          </li>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'aboutus' %}">About Us</a>
+          </li>
+          
+        </ul>
+          <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+          
+          <li class="nav-item dropdown" >
+            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ user.username }}
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="{% url 'account' %}">My Account</a>
+              <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+            </div>
+
+          </li>
+        <ul>
+      {% else %}
+        <form class="form-inline ml-auto">
+          <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log In</a>
+          <a href="{% url 'signup' %}" class="btn btn-primary ml-2">Sign Up</a>
+        </form>
+      {% endif %} 
+      </ul>
+      </div>
+    </div>
+  </nav>

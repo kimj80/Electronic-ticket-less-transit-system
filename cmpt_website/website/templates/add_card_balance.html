@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h2>Add Balance To A Card</h2>
+    <br/>
+    <br/>
+    <p><b>Card ID Number: </b>{{ card.card_id }}
+    </p><p><b>Current Balance: </b>{{ card.MakeDollar }}</p>
+    <br/>
+    <form action="" method=POST id="form1">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br/>
+        <p style="color: black; font-size: 16px;">Quick Select</p>
+        <span>
+        <input type="button" style="min-width: 50px;" class="btn btn-primary" value=" 5 " onclick="update_five()">
+     
+        <input type="button" style="min-width: 50px;" class="btn btn-primary" value=" 10 " onclick="update_ten()">
+     
+        <input type="button" style="min-width: 50px;" class="btn btn-primary" value=" 50 " onclick="update_fifty()">
+      
+        <input type="button" style="min-width: 50px;" class="btn btn-primary" value=" 100 " onclick="update_hundred()">
+       
+        <input type="button" class="btn btn-danger" value="RESET" onclick="reset()">
+        </span>
+        <br/>
+        <br/>
+     
+        <input type="submit" value="Update Balance" class="btn btn-success">
+        
+
+   
+    </form>
+    <br/>
+    <a href = "{% url 'account' %}"><button class="btn btn-secondary">Cancel</button></a>
+    <br/>
+ 
+
+    <script>
+        function update_five() {
+          document.getElementById("id_balance").value = "5"
+        }
+        function update_ten() {
+          document.getElementById("id_balance").value = "10"
+        }
+        function update_fifty() {
+          document.getElementById("id_balance").value = "50"
+        }
+        function update_hundred() {
+          document.getElementById("id_balance").value = "100"
+        }
+        function reset() {
+          document.getElementById("id_balance").value = "0"
+        }
+        </script>
+    
+
+{% endblock %}

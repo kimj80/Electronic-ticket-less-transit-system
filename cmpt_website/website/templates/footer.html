@@ -1,0 +1,53 @@
+<br/>
+<br/>
+
+{% load static %}
+
+    <footer>
+        <div class="container-fluid bg-dark text-light mt-5 pt-5">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <h4>Public Pages</h4>
+                     
+                  
+                        <a href="{% url 'index' %}" style="text-decoration: none; color:#D9D9D6">Home</a>
+                        <br/>
+                        <a href="{% url 'aboutus' %}" style="text-decoration: none; color:#D9D9D6">About Us</a>
+                        <br/>
+                        <a href="{% url 'contact' %}" style="text-decoration: none; color:#D9D9D6">Contact</a>
+                        <br/>
+                        <a href="{% url 'product' %}" style="text-decoration: none; color:#D9D9D6">Product</a>
+                        <br/>
+                        <a href="{% url 'safetyrules' %}" style="text-decoration: none; color:#D9D9D6">Safety Rules</a>
+                        <br/>
+                        <a href="{% url 'login' %}" style="text-decoration: none; color:#D9D9D6">Login Page</a>
+                        <br/>
+                        <a href="{% url 'signup' %}" style="text-decoration: none; color:#D9D9D6">Signup Page</a>
+                        <br/>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <h4>Useful Links</h4>
+               
+                        <a href="https://www.edmonton.ca/" style="text-decoration: none; color:#D9D9D6">City of Edmonton</a>
+                        <br/>
+                        <a href="https://www.edmonton.ca/edmonton-transit-system-ets" style="text-decoration: none; color:#D9D9D6">Edmonton Transit Service</a>
+                        <br/>
+                        <a href="https://www.macewan.ca/wcm/index.htm" style="text-decoration: none; color:#D9D9D6">MacEwan University</a>
+                        <br/>
+                        
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6" id="imgdiv">  
+                        <h4>Our Mission</h4>
+                
+                        <p style="font-size:18px; color: #87cefa;"><i>JDK Transit is proud to provide a safe and reliable digital transit service to the Edmonton public. The links on this site provide access to the various transit resources available.</i> </p>
+                        <br/>
+                        <span style="display:table; margin: 0 auto;"><img src="../static/img/bus.png" style="width:80px;">&nbsp;&nbsp;<img src="../static/img/correct.png" style="width:80px;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center py-3">
+                <p style="font-size:14px">Copyright © 2022 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
